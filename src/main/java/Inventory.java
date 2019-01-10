@@ -67,7 +67,7 @@ public class Inventory {
                 }
             }
         }
-        if (realProduct = false){
+        if (!realProduct){
             throw new InsufficientInventory(-1, -1);
         }
     }
