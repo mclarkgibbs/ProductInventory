@@ -28,5 +28,4 @@ class Product {
     void addStock(int quantity) {
         this.quantity += quantity;
     }
-
 }
