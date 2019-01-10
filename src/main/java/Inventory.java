@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class InsufficientInventory extends Exception {
+class InsufficientInventory extends -Exception {
     public InsufficientInventory(int currentInventory, int requestedInventory) {
         super("There is not enough inventory for this product. " +
                 "Current Inventory: " + currentInventory + " Needed: " + requestedInventory);
@@ -19,6 +19,23 @@ public class Inventory {
         }
 
         return -1;
+    }
+
+    double totalInventoryValue(){
+        double inventoryValue = 0;
+        for (int i = 0; i < products.size(); i++) {
+            inventoryValue += (products.get(i).getPrice() * products.get(i).getQuantity());
+        }
+        return inventoryValue;
+    }
+
+    boolean inStock(String productId){
+        for (int i = 0; i < products.size; i++){
+            if (products.get(i).getProductId().equals(productId) && products.get(i).getQuantity() > 0){
+                return true;
+            }
+        }
+        return false;
     }
 
     void addProduct(String productId, double price, int quantity) {
